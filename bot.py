@@ -4,6 +4,7 @@ import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from cat_api import get_cat_image_url
+from emoji.utils import get_list_of_emoji
 from stalker_bandit import get_bandit_quote
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -43,6 +44,8 @@ def echo(update, context):
     answer = get_bandit_quote()
     if answer:
         update.message.reply_text(answer)
+    else:
+        update.message.reply_text(get_list_of_emoji())
 
 
 def error(update, context):
