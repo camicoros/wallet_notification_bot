@@ -41,11 +41,9 @@ def unknown_command(update, context):
 
 def echo(update, context):
     """ Echo the user message"""
-    answer = get_bandit_quote()
+    answer = get_bandit_quote() or get_list_of_emoji()
     if answer:
         update.message.reply_text(answer)
-    else:
-        update.message.reply_text(get_list_of_emoji())
 
 
 def error(update, context):

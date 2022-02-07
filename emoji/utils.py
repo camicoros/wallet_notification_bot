@@ -18,7 +18,7 @@ def get_random_emoji():
     return random.choice(COMMON_LIST)
 
 
-def get_list_of_emoji(start=0, end=5):
+def get_list_of_emoji(start=0, end=2):
     return "".join(random.choices(COMMON_LIST, k=random.randint(start, end)))
 
 
