@@ -1,6 +1,5 @@
-import datetime
 import logging
-
+import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from cat_api import get_cat_image_url
@@ -52,7 +51,7 @@ def error(update, context):
 
 
 def main():
-    updater = Updater("5246885222:AAFlooXyDTJFapnfdvIrYVgc-1RowSpLuoM", use_context=True)
+    updater = Updater(os.environ['SECRET_KEY'], use_context=True)
 
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start_command))
