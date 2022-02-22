@@ -4,6 +4,7 @@ import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from cat_api import get_cat_image_url
+from dog_api import get_dog_image_url
 from emoji.utils import get_list_of_emoji
 from stalker_bandit import get_bandit_quote
 
@@ -28,10 +29,16 @@ def help_command(update, context):
                               )
 
 
-def send_photo_command(update, context):
+def send_cat_photo_command(update, context):
     """ Send photo of cat """
     context.bot.delete_message(chat_id=update.effective_chat.id, message_id=update.effective_message.message_id)
     context.bot.send_photo(chat_id=update.effective_chat.id, photo=get_cat_image_url())
+
+
+def send_dog_photo_command(update, context):
+    """ Send photo of dog """
+    context.bot.delete_message(chat_id=update.effective_chat.id, message_id=update.effective_message.message_id)
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo=get_dog_image_url())
 
 
 def unknown_command(update, context):
@@ -57,7 +64,8 @@ def main():
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start_command))
     dp.add_handler(CommandHandler("help", help_command))
-    dp.add_handler(CommandHandler("photo", send_photo_command))
+    dp.add_handler(CommandHandler("cat-photo", send_cat_photo_command))
+    dp.add_handler(CommandHandler("dog-photo", send_dog_photo_command))
     dp.add_handler(MessageHandler(Filters.command, unknown_command))
 
     dp.add_handler(MessageHandler(Filters.text, echo))
