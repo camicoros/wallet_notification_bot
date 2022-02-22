@@ -24,7 +24,8 @@ def help_command(update, context):
                               'Here what I can do for you, boss!\n\n'
                               '/start - for start\n'
                               '/help - for help\n'
-                              '/photo - for cat photo'
+                              '/cat_photo - for cat photo\n'
+                              '/dog_photo - for dog photo\n'
                               )
 
 
@@ -63,8 +64,8 @@ def main():
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start_command))
     dp.add_handler(CommandHandler("help", help_command))
-    dp.add_handler(CommandHandler("cat-photo", send_cat_photo_command))
-    dp.add_handler(CommandHandler("dog-photo", send_dog_photo_command))
+    dp.add_handler(CommandHandler("cat_photo", send_cat_photo_command))
+    dp.add_handler(CommandHandler("dog_photo", send_dog_photo_command))
     dp.add_handler(MessageHandler(Filters.command, unknown_command))
 
     dp.add_handler(MessageHandler(Filters.text, echo))
