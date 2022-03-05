@@ -19,13 +19,13 @@ def get_random_emoji():
 
 
 def get_dog_emoji():
-    dogs = [u"\uE052", u"\U0001F415"]
+    dogs = [u"\U0001F436", u"\U0001F415"]
     return random.choice(dogs)
 
 
 def get_cat_emoji():
     cats = [
-        u"\uE04F",  # cat face
+        u"\U0001F431",  # cat face
         u"\U0001F408",  # cat
         u"\U0001F63B",  # heart_eyes_cat
         u"\U0001F63C",  # smirk_cat
@@ -43,7 +43,7 @@ def get_cat_emoji():
 def get_pig_emoji():
     pigs = [
         u"\U0001F43D",  # pig_nose
-        u"\uE10B",  # pig_face
+        u"\U0001F437",  # pig_face
         u"\U0001F416",  # pig
     ]
     return random.choice(pigs)
