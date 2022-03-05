@@ -38,7 +38,7 @@ def send_cat_photo_command(update, context):
 def send_dog_photo_command(update, context):
     """ Send photo of dog """
     context.bot.delete_message(chat_id=update.effective_chat.id, message_id=update.effective_message.message_id)
-    context.bot.send_photo(chat_id=update.effective_chat.id, photo=get_dog_image_url())
+    # context.bot.send_photo(chat_id=update.effective_chat.id, photo=get_dog_image_url())
 
 
 def unknown_command(update, context):
